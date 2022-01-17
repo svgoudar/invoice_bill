@@ -1,23 +1,16 @@
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, get_object_or_404, HttpResponseRedirect, HttpResponse, redirect
-from rest_framework import serializers, viewsets, decorators, response
+from django.shortcuts import render, get_object_or_404, redirect
+from rest_framework import  viewsets, decorators
 from django.contrib import messages
-
 from .models import items
 from .serializer import ItemtSerializer
 from rest_framework import viewsets
 from .forms import purchaseForm
 from django.http import JsonResponse
 from django.contrib.auth.models import User
-import inspect
 from rest_framework.authentication import SessionAuthentication
-# from .custompermissions import MyPermission
-from django.views import View
-from django.shortcuts import reverse
 from datetime import datetime
 
-import os
-import requests
 
 
 def gen_bill(request):
