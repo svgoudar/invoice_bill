@@ -14,7 +14,7 @@ from rest_framework.authentication import SessionAuthentication
 # from .custompermissions import MyPermission
 from django.views import View
 from django.shortcuts import reverse
-
+from datetime import datetime
 
 class purchaseviewset(viewsets.GenericViewSet):
     http_method_names = ['get']
@@ -39,6 +39,8 @@ class purchaseviewset(viewsets.GenericViewSet):
         for i in value_list:
             i['final_price'] = round(self.get_amount(i.get('item_category', 0), i['price']), 4)
             i['applied_tax'] = self.tax.get(i.get('item_category'), 0)
+            i['purchased_date'] = datetime.fromisoformat(str(i.get("purchased_date"))).ctime()
+
         return value_list
 
     def get_queryset(self):
