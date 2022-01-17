@@ -180,6 +180,7 @@ footer {
           data.forEach((itemData) => {
               if (Object.keys(itemData).length > 3){
                 temp += "<tr>";
+                temp += "<td>" + itemData.purchased_date + "</td>";
                 temp += "<td>" + itemData.item + "</td>";
                 temp += "<td>" + itemData.item_category + "</td>";
                 temp += "<td>" + itemData.quantity + "</td>";
