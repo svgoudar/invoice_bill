@@ -26,9 +26,7 @@ def gen_bill(request):
 
 class purchaseviewset(viewsets.GenericViewSet):
     http_method_names = ['get']
-    lookup_field = 'pk'
     tax = {'Medicine': 5, 'Food': 5, 'Music': 3, 'Total': 5, 'Imported': 18}
-
     queryset = items.objects.all()
     serializer_class = ItemtSerializer
 
