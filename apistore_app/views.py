@@ -79,10 +79,10 @@ class purchaseviewset(viewsets.GenericViewSet):
         total_before_tax = sum(map(lambda x: x.get('final_price'), self.get_bill(v)))
         # print(" total:  ", total)
         # print(int(total) >= 2000)
-        total = self.get_amount('Total', total_before_tax) if int(total_before_tax) >= 2000 else total_before_tax
+        total = self.get_amount('Total', total_before_tax) if round(total_before_tax) >= 2000 else total_before_tax
 
         v.append({'total': round(total_before_tax),
-                  'applied_tax_on_total_amount': self.tax.get('Total') if total_before_tax >> 2000 else 0,
+                  'applied_tax_on_total_amount': self.tax.get('Total') if round(total_before_tax) >> 2000 else 0,
                   'final_total':round(total)})
         print("Total: ", total)
         print("list(self.get_queryset().values()) ", list(self.get_queryset().values()))
