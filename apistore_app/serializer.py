@@ -6,10 +6,6 @@ class ItemtSerializer(serializers.ModelSerializer):
     class Meta:
         model = items
         fields = ["item", "item_category", "quantity", "price"]
+        authentication_classes = [BasicAuthentication]
+        permission_classes = [IsAuthenticated]
 
-        # authentication_classes = [BasicAuthentication]
-        # permission_classes = [IsAuthenticated]
-
-
-# class genrate_purchase(viewsets.ModelViewSet):
-#     serializers = items.objects.all()
