@@ -3,18 +3,14 @@ from .models import items
 from django import forms
 from django.core.exceptions import ValidationError
 
-# class textchoices(forms.ChoiceField):
-tax = {'Medicine': 5, 'Food': 5, 'Music': 3, 'Total': 5, 'Imported': 18}
-
-choices = ((5, "Medicine")
-           , (5, "Food"),
-           (3, "Music"),
-           (18, "Imported"),
-           (0, "Book"))
+choices = (("Medicine", "Medicine")
+           , ("Food", "Food"),
+           ("Music", "Music"),
+           ("Imported", "Imported"),
+           ("Book", "Book"))
 
 
 class purchaseForm(ModelForm):
-    # choice_category = forms.ChoiceField(choices=choices)
 
     class Meta:
         model = items
@@ -27,5 +23,4 @@ class purchaseForm(ModelForm):
                    'price': NumberInput(attrs={'class': 'form-control', 'placeholder': 'Enter the cost of item'}),
                    }
 
-    # def clean(self):
-    #     raise ValidationError("Do not enter duplicate value")
+   
