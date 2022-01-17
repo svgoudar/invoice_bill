@@ -3,11 +3,6 @@ from .models import items
 from django import forms
 from django.core.exceptions import ValidationError
 
-choices = (("Medicine", "Medicine")
-           , ("Food", "Food"),
-           ("Music", "Music"),
-           ("Imported", "Imported"),
-           ("Book", "Book"))
 
 
 class purchaseForm(ModelForm):
