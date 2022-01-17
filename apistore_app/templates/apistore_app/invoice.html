@@ -139,15 +139,10 @@ small {
       text-align:right;
    }
 
-<!--#table {-->
-<!--  border:1px solid red;-->
-<!--&lt;!&ndash;  border-collapse:separate;&ndash;&gt;-->
-<!--}-->
 
 table, th, td, thead {
   border: 10px solid black;
   width: 50px;
-<!--  border-collapse: collapse;-->
 }
 
 footer {
@@ -160,9 +155,7 @@ footer {
   padding: 8px 0;
   text-align: center;
 }
-
 {% endblock style %}
-
 {% block content %}
 
 <div id="myData"></div>
@@ -175,7 +168,6 @@ footer {
         console.log(res)
         console.log(data);
         if (data.length > 0) {
-
           var temp = "";
           data.forEach((itemData) => {
               if (Object.keys(itemData).length > 3){
@@ -189,7 +181,7 @@ footer {
                 temp += "<td>" + itemData.final_price + "</td>";
                 }
               else{
-                temp += "<tfoot><tr><th colspan=2>Payable Amount :</th><td><small></small><strong>Rs. " + itemData.total +  "/-</strong></td></tfoot>";
+                temp += "<tfoot><tr><th colspan=2>Payable Amount :</th><td><small><strong>Rs. </strong></small><strong>" + itemData.total +  "/-</strong></td></tfoot>";
                 temp += "<tfoot><tr><th colspan=2>Tax : (in percentile %)</th><td><strong>" + itemData.applied_tax_on_total_amount +  "</strong></td></tfoot>";
                 temp += "<tfoot><tr><th colspan=2>Total :</th><td><small><strong>Rs. </strong></small><strong>" + itemData.final_total + "/-</strong></td></tfoot>";}
 
@@ -217,68 +209,9 @@ footer {
     </thead>
     <tbody aria-colspan=6 id="data">
     </tbody>
-<!-- <tfoot>-->
-<!--    <tr>-->
-<!--      <th id="total" colspan="3">Total :</th>-->
-<!--      <td>200</td>-->
-<!--    </tr>-->
-<!--   </tfoot>-->
   </table>
 </div>
 
 {% endblock content %}
 
-<!--  <script src="{% static 'apistore_app/min.js' %}"></script>-->
-<!--  <header class="clearfix">-->
-<!--    <div id="logo" style="display:flex; justify-content:center; align-items:center;">-->
-<!--      {#<img src="static/firstapp/images/logo.png" class="brand-logo" width=60 height=60>#} &lt;!&ndash;not working&ndash;&gt;-->
-<!--      {#<img src="static/logo.png" class="brand-logo" height="200px">#} &lt;!&ndash;not working&ndash;&gt;-->
-<!--      <img src="D:\Mastering Django\firstproject\firstapp\logo.png" class="brand-logo" width=60 height=60>-->
-<!--      <h1 class="brand-name">WonderShop</h1>-->
-<!--    </div>-->
-<!--    <h1>INVOICE</h1>-->
-<!--    <div id="company" class="clearfix">-->
-<!--      <div>WonderShop</div>-->
-<!--      <div><a href="mailto:company@example.com">company@example.com</a></div>-->
-<!--      <div><a href="www.wondershop.in:8000">www.wondershop.in:8000</a></div>-->
-<!--    </div>-->
-<!--    <div id="project">-->
-<!--      <div><span>CLIENT:</span> {{name}}</div>-->
-<!--      <div><span>EMAIL:</span> <a href="mailto:{{user_email}}">{{user_email}}</a></div>-->
-<!--      <div><span>DATE:</span> {{date}}</div>-->
-<!--      <div><span>INVOICE ID:</span> {{order_id}}</div>-->
-<!--      <div><span>TRANSACTION ID:</span> {{transaction_id}}</div>-->
-<!--    </div>-->
-<!--    <br>-->
-<!--    <br>-->
-<!--  </header>-->
-<!--    <div class="table-container" style="overflow-x:auto">-->
-<!--      <table class="table" style="width:100%">-->
-<!--          <thead>-->
-<!--              <tr>-->
-<!--                  <th scope="col">PRODUCT</th>-->
-<!--                  <th scope="col">QUANTITY</th>-->
-<!--                  <th scope="col">PRICE</th>-->
-<!--              </tr>-->
-<!--          </thead>-->
-<!--          <tbody>-->
-<!--              {% for i in order.productinorder_set.all %}-->
-<!--              <tr>-->
-<!--                  <td scope="row">{{i.product}}</td>-->
-<!--                  <td>{{i.quantity}}</td>-->
-<!--                  <td>{{i.price}}</td>-->
-
-<!--              </tr>-->
-<!--              {% endfor %}-->
-<!--              <tr>-->
-<!--                  <td scope="row"></td>-->
-<!--                  <td>TOTAL: </td>-->
-<!--                  <td>{{amount}}</td>-->
-
-<!--              </tr>-->
-<!--          </tbody>-->
-<!--      </table>-->
-
-<!--    </div>-->
-<!--    <p style="text-align:right; font-size:12px;">*All values are in INR<p>-->
 
