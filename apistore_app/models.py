@@ -18,12 +18,7 @@ class items(models.Model):
                ("Imported", "Imported"),
                ("Book", "Book"))
 
-    # YES = 'True'
-    # NO = 'False'
-    # ALL_CHOICES = [
-    #     (YES, 'Good choice'),
-    #     (NO, 'Bad choice')
-    # ]
+ 
     customer = models.ForeignKey(User, on_delete=models.CASCADE, related_name='customer')
     purchased_date = models.DateTimeField(auto_now_add=True)
     item = models.CharField(max_length=30)
@@ -31,8 +26,5 @@ class items(models.Model):
     quantity = models.PositiveIntegerField()
     price = models.PositiveIntegerField()
 
-    # def generate_b
     class Meta:
-        ordering = ['item_category']
-
-        # unique_together = ["item", "item_category", "quantity", "price"]
+        ordering = ['item']
