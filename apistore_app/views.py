@@ -19,6 +19,11 @@ from datetime import datetime
 import os
 import requests
 
+
+def gen_bill(request):
+    return render(request, 'apistore_app/invoice.html')
+
+
 class purchaseviewset(viewsets.GenericViewSet):
     http_method_names = ['get']
     lookup_field = 'pk'
@@ -47,7 +52,7 @@ class purchaseviewset(viewsets.GenericViewSet):
     @decorators.action(methods=['get'], detail=False)
     def generate_bill(self, request):
         api_data = list(self.get_queryset().values())
-        total_before_tax = sum(map(lambda x: x.get('final_price'), self.get_bill(v)))
+        total_before_tax = sum(map(lambda x: x.get('final_price'), self.get_bill(api_data)))
         total = self.get_amount('Total', total_before_tax) if round(total_before_tax) >= 2000 else total_before_tax
 
         api_data.append({'total': round(total_before_tax),
