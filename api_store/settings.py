@@ -135,8 +135,5 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-if DEBUG:
-    import dj_database_url
-    dj_from_env = dj_database_url.config(conn_max_age=500)
-    DATABASES['default'].update(dj_from_env)
+
 
