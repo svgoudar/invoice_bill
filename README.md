@@ -9,7 +9,7 @@ Steps -->
 3) Execute the command "pip install -r requirements.txt"
 4) Set DEBUG=False in api_store/settings.py file
 5) Execute the command 'python manage.py makemigrations'
-6) Then execute the sane command with app name ''python manage.py makemigrations apisore_app'
+6) Then execute the sane command with app name ''python manage.py makemigrations apistore_app'
 7) Then execute the migrate command 'python manage.py migrate'
 8) Then run the server 'python manage.py runserver' access the default url(https://127.0.0.1:8000).
 9) Create the super user 'python manage.py createsuperuser'.(Note: You can also register new account in the application only).
